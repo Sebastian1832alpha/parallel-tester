@@ -15,7 +15,10 @@ func main() {
 		port = "8080"
 	}
 
-	
+		if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 
 	domainsQuery := r.URL.Query().Get("teritory")
 	if domainsQuery == "" {
